@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Главное"
+        android:icon="@drawable/ic_main"
+        android:id="@+id/nav_main"/>
+
+    <item
+        android:title="Корзина"
+        android:icon="@drawable/ic_basket"
+        android:id="@+id/nav_basket"
+
+        />
+    <item
+        android:title="Личное"
+        android:icon="@drawable/ic_personal"
+        android:id="@+id/nav_personal"
+
+        />
+    <item
+        android:title="Поиск"
+        android:icon="@drawable/ic_search"
+        android:id="@+id/nav_search"
+
+        />
+</menu>
