@@ -6,12 +6,145 @@
     tools:context=".MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_filter_1"
+                style="@style/ButtonFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+
+
+                android:text="Пицца"
+                android:textSize="18dp"
+                android:fontFamily="@font/comfortaa_regular"
+                />
+
+            <Button
+                android:id="@+id/button_filter_2"
+                style="@style/ButtonFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+
+                android:text="Button"
+                android:textSize="18dp"
+                android:fontFamily="@font/comfortaa_regular"
+                />
+
+
+
+
+            <Button
+                android:id="@+id/button_filter_3"
+                style="@style/ButtonFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+
+                android:text="Button"
+                android:textSize="18dp"
+                android:fontFamily="@font/comfortaa_regular"
+                />
+
+            <Button
+                android:id="@+id/button_filter_4"
+                style="@style/ButtonFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+
+                android:text="Button"
+                android:textSize="18dp"
+                android:fontFamily="@font/comfortaa_regular"
+                />
+
+            <Button
+                android:id="@+id/button_filter_5"
+                style="@style/ButtonFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+
+                android:text="Button"
+                android:textSize="18dp"
+                android:fontFamily="@font/comfortaa_regular"
+                />
+
+            <Button
+                android:id="@+id/button_filter_6"
+                style="@style/ButtonFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+
+                android:text="Button"
+                android:textSize="18dp"
+                android:fontFamily="@font/comfortaa_regular"
+                />
+
+            <Button
+                android:id="@+id/button_filter_7"
+                style="@style/ButtonFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#D2A8E5"
+
+                android:text="Button"
+                android:textSize="18dp"
+                android:fontFamily="@font/comfortaa_regular"
+
+                />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="Экран Главное"
         android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:textSize="30sp" />
 
 </RelativeLayout>
