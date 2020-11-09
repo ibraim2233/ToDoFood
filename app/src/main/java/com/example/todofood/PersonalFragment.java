@@ -18,5 +18,7 @@ public class PersonalFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_personal, container, false);
+
     }
+
 }

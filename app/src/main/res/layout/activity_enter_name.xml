@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".EnterNameActivity">
+
+    <ImageButton
+        android:onClick="onClickBackToCodeConfirm"
+        android:id="@+id/back_to_phone_reg"
+        android:layout_width="25sp"
+        android:layout_height="25sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/ic_baseline_arrow_back_ios_24"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Как к вам обращаться?"
+        android:fontFamily="@font/comfortaa_regular"
+        android:textFontWeight="700"
+        android:textSize="33dp"
+        android:textColor="#000000"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:background="#ffffff"
+
+
+                android:fontFamily="@font/comfortaa_regular"
+                android:hint="Введите имя"
+                android:inputType="text"
+                android:textFontWeight="700"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="0px"
+                android:background="@drawable/shadow"
+                android:layout_below="@+id/button_enter"
+                android:layout_toStartOf="@+id/button_enter"
+                />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:onClick="onClickSaveAcc"
+        android:id="@+id/button_go_to_enter_name"
+        android:textAllCaps="false"
+        android:textFontWeight="600"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_enter"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="24dp"
+        android:textColor="#000000"
+        android:layout_alignParentBottom="true"
+        android:text="Сохранить"
+        android:textSize="18dp"
+        android:fontFamily="@font/comfortaa_regular"
+
+        />
+
+
+
+</RelativeLayout>
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

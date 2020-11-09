@@ -7,11 +7,38 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/basket"
+        android:text="Корзина пуста"
+        android:fontFamily="@font/comfortaa_regular"
+        android:textStyle="bold"
+        android:textColor="#939297"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+    <Button
+        android:onClick="onClickBackToFoodMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Экран Корзины"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:background="@drawable/filter_button_basket"
+        android:layout_below="@+id/basket"
+        android:layout_centerHorizontal="true"
+        android:text="Вернуться к выбору еды"
+        android:textSize="14dp"
+        android:textColor="#000000"
+        android:fontFamily="@font/comfortaa_regular"
+        android:textAllCaps="false"
+        android:layout_marginTop="100dp"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:paddingBottom="18dp"
+        android:paddingTop="18dp"
+
+        tools:ignore="OnClick" />
+
+
+
 
 
 </RelativeLayout>

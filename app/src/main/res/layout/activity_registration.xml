@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RegistrationActivity"
+    android:background="#ffffff">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ffffff">
+
+
+        <ImageButton
+            android:id="@+id/back_to_main_fragment"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="51dp"
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_remove_symbol"
+            />
+
+        <TextView
+            android:onClick="onClickClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/comfortaa_regular"
+            android:text="Телефон"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textFontWeight="700"
+            android:textSize="24dp" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="19dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="@font/comfortaa_regular"
+
+        android:text="Для оформления заказа введите номер телефона, на него придет СМС с кодом подтверждения"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Номер телефона"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="40dp"
+        android:textFontWeight="700"
+        android:textSize="14dp"
+        android:fontFamily="@font/comfortaa_regular"
+        android:textColor="#939297"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:layout_marginLeft="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="100dp"
+        android:textSize="28sp"
+        android:textFontWeight="700"
+
+        android:textColor="#000000"
+
+
+        android:fontFamily="@font/comfortaa_regular"
+        />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:background="#ffffff"
+            android:digits="0123456789"
+
+            android:fontFamily="@font/comfortaa_regular"
+            android:hint="Enter number"
+            android:inputType="phone"
+            android:maxEms="10"
+            android:maxLength="11"
+            android:minEms="10"
+            android:textFontWeight="700"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/clear_number"
+            android:onClick="onClickDelete"
+            android:layout_centerInParent="true"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_toStartOf="@id/button_enter"
+            android:layout_marginTop="21dp"
+
+
+            android:background="@drawable/ic_remove_symbol" />
+        <Button
+            android:onClick="onClickPhoneCofirm"
+            android:id="@+id/button_enter"
+            android:textAllCaps="false"
+            android:textFontWeight="600"
+            android:layout_centerInParent="true"
+            android:background="@drawable/button_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="19px"
+            android:layout_marginBottom="0px"
+            android:paddingRight="24dp"
+            android:paddingLeft="24dp"
+            android:textColor="#000000"
+
+            android:text="Войти"
+            android:textSize="18dp"
+            android:fontFamily="@font/comfortaa_regular"
+
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-25px"
+            android:background="@drawable/shadow"
+            android:layout_below="@+id/button_enter"
+            android:layout_toStartOf="@+id/button_enter"
+            />
+
+    </RelativeLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:textColor="#939297"
+        android:fontFamily="@font/comfortaa_regular"
+        android:text='«Ничем в жизни мы не занимаемся так часто, как едой, – и глупо бросать это дело на произвол судьбы» (Петр Вайль)'
+
+
+        />
+</RelativeLayout>
+
+
+
+</LinearLayout>

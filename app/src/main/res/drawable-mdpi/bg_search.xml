@@ -4,8 +4,8 @@
         android:color="?attr/colorControlHighlight">
         <item>
             <shape android:shape="rectangle"
-                android:tint="#D2A8E5">
-                <corners android:radius="15dp"/>
+                android:tint="#F6F6F6">
+                <corners android:radius="20dp"/>
             </shape>
         </item>
         <item
@@ -14,8 +14,8 @@
             android:top="1dp"
             android:right="1dp">
             <shape android:shape="rectangle"
-                android:tint="#D2A8E5">
-                <corners android:radius="15dp"/>
+                android:tint="#F6F6F6">
+                <corners android:radius="20dp"/>
             </shape>
         </item>
     </ripple>

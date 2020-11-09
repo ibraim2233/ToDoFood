@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".RegistrationContinueActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <ImageButton
+        android:onClick="onClickBackToPhoneReg"
+        android:id="@+id/back_to_phone_reg"
+        android:layout_width="25sp"
+        android:layout_height="25sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/ic_baseline_arrow_back_ios_24"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Подтверждение телефона"
+        android:fontFamily="@font/comfortaa_regular"
+        android:textFontWeight="700"
+        android:textSize="33dp"
+        android:textColor="#000000"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="700"
+        android:textAlignment="center"
+        android:text="На номер +7 (978) 000-00-00 отправлено СМС с кодом.Телефон важен, что бы курьер смог связаться в вами"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="15dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#ffffff"
+
+            android:digits="0123456789"
+
+            android:fontFamily="@font/comfortaa_regular"
+            android:hint="СМС код"
+            android:inputType="phone"
+            android:maxLength="4"
+            android:textFontWeight="700"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0px"
+            android:background="@drawable/shadow"
+            android:layout_below="@+id/button_enter"
+            android:layout_toStartOf="@+id/button_enter"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_confirm"
+        android:textAllCaps="false"
+        android:textFontWeight="600"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/button_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="Отправить код повторно"
+        android:textSize="12dp"
+        android:paddingLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/comfortaa_regular"
+
+        />
+
+</RelativeLayout>
+    <Button
+        android:onClick="onClickGoToEnterName"
+        android:id="@+id/button_go_to_enter_name"
+        android:textAllCaps="false"
+        android:textFontWeight="600"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_enter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="0px"
+        android:paddingRight="24dp"
+        android:paddingLeft="24dp"
+        android:textColor="#000000"
+
+        android:text="Подтвердить"
+        android:textSize="18dp"
+        android:fontFamily="@font/comfortaa_regular"
+
+        />
+
+
+
+
+
+</LinearLayout>
+
+
+
+</LinearLayout>
