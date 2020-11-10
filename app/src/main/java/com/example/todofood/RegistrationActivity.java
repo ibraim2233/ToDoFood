@@ -22,6 +22,8 @@ public class RegistrationActivity extends AppCompatActivity {
     public void onClickClose(View v)
     {
         Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("Activity","Registration");
+        intent.putExtra("Fragment","Personal");
         startActivity(intent);
         finish();
     }

@@ -31,12 +31,15 @@ public class RestoranMenu extends AppCompatActivity {
     }
     public void onClickBackToMain(View v) {
         Intent intent =new Intent(this,MainActivity.class);
+        intent.putExtra("Activity","RestoranMenuNotBasket");
         startActivity(intent);
         finish();}
         public void onClickGoToBasket(View v){
             MainActivity mainActivity = new MainActivity();
             mainActivity.goToBasketCheck=true;
             Intent intent = new Intent(this,MainActivity.class);
+            intent.putExtra("Activity","RestoranMenu");
+            intent.putExtra("Fragment","Basket");
             startActivity(intent);
 
             finish();

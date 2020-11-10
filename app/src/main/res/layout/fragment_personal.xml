@@ -67,7 +67,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/my_orders_view"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        android:layout_marginTop="20dp">
         <Button
             android:id="@+id/go_to_me_order_button"
             android:layout_width="25sp"

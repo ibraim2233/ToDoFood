@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity  {
     public BottomNavigationView bottomNav;
     MenuItem menuItem;
     SharedPreferences sPref;
+    String activityStr;
+    String fragmentStr;
+    String savedText;
+    boolean savedFragmentPersonal=false;
     public boolean goToBasketCheck=false;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,31 +36,67 @@ public class MainActivity extends AppCompatActivity  {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         bottomNav= findViewById(R.id.bottomNavigationView);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+        Fragment fragment = new MainFragment();
+        activityStr=getIntent().getExtras().getString("Activity");
+        fragmentStr = getIntent().getExtras().getString("Fragment");
 
         sPref = getSharedPreferences("Data", Context.MODE_PRIVATE);
 
         menuItem =bottomNav.getMenu().findItem(R.id.nav_basket);
-        System.out.println("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ="+goToBasketCheck);
+        //System.out.println("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ="+goToBasketCheck);
         //changePersonal();
-        //boolean savedText = sPref.getBoolean("SAVE_BOOLEAN", false);
-        //System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH="+sPref.getBoolean("SAVE_BOOLEAN",false));
-/*
-        System.out.println("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW="+savedText.savePersonalData);*/
+        savedText = sPref.getString("SAVE_STRING","false");
+        System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH="+sPref.getString("SAVE_STRING","false"));
+        System.out.println("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW="+savedText);
 
 
 
 /*        if(savedText==true)
             changePersonal();*/
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new MainFragment()).commit();
-/*            for(int i=0;i<3;i++){
-                Card[i]=findViewById(getResources().getIdentifier("card"+i+1,"id",getPackageName()));
-                Card[i].setOnClickListener(this);
-            }*/
-        }
 
+            if(activityStr.equals("Registration"))
+            {
+                if( fragmentStr.equals("Personal"))
+                {
+                    savedFragmentPersonal=true;
+                    fragment=new PersonalFragment();
+                    bottomNav.getMenu().findItem(R.id.nav_personal).setChecked(true);
+                }
+            }
+            if(activityStr.equals("RestoranMenu"))
+            {
+                if( fragmentStr.equals("Basket"))
+                {
+                    fragment=new BasketFragment();
+                    bottomNav.getMenu().findItem(R.id.nav_basket).setChecked(true);
+                }
+            }else if(activityStr.equals("EnterName")){
+                savedFragmentPersonal=true;
+                fragment=new PersonalFragment();
+                bottomNav.getMenu().findItem(R.id.nav_personal).setChecked(true);
+
+            }
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    fragment).commit();
+
+
+        }
     }
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(savedText.equals("True") && savedFragmentPersonal==true)
+        {
+            savedFragmentPersonal=false;
+            changePersonal();
+        }
+        // Возобновите все приостановленные обновления UI,
+        // потоки или процессы, которые были "заморожены",
+        // когда данный объект был неактивным.
+    }
+
     public void changePersonal(){
         TextView textViewPersonalData = findViewById(R.id.go_to_regestration_or_data);
         textViewPersonalData.setText("Мои данные");
@@ -65,6 +105,7 @@ public class MainActivity extends AppCompatActivity  {
         View shadowPersonal = findViewById(R.id.shadow_persanal_two);
         shadowPersonal.setVisibility(View.VISIBLE);
         Button buttonRegestrationOrPersonalData=findViewById(R.id.fill_data_or_go_to_data_button);
+        buttonRegestrationOrPersonalData.setClickable(false);
 
     }
 
@@ -89,28 +130,39 @@ public class MainActivity extends AppCompatActivity  {
                             selectedFragment=new SearchFragment();
                             break;
                         case R.id.nav_personal:
+                            savedFragmentPersonal=true;
                             selectedFragment=new PersonalFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+                    onResume();
+
                     return true;
+
                 }
 
             };
+
+
+
 
     public void onBackPressed() { }
 
     public void onClickGoToRestoran(View v) {
         Intent intent = new Intent(this,RestoranMenu.class);
         startActivity(intent);
-        //finish();
+        finish();
     }
 
     public void onClickRegestration(View v)
     {
-        Intent intent = new Intent(this,RegistrationActivity.class);
-        startActivity(intent);
-        //finish();
+        if(savedText.equals("True"))
+            OpenPersonalData();
+        else {
+            Intent intent = new Intent(this, RegistrationActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
     public void onClickBackToFoodMenu(View v){
         bottomNav.getMenu().getItem(3).setChecked(false);
@@ -125,7 +177,7 @@ public class MainActivity extends AppCompatActivity  {
         //navListener.onNavigationItemSelected(menuItem);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new MainFragment()).commit();
     }
-    public void onClickOpenPersonalData(View v){
+    public void OpenPersonalData(){
         //
     }
 }

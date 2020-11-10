@@ -82,6 +82,7 @@ public class MapsActivity extends AppCompatActivity {
 
 public void OnClickNext(View view){
         Intent intent = new Intent(MapsActivity.this,MainActivity.class);
+        intent.putExtra("Activity","Maps");
         startActivity(intent);
         finish();
 }

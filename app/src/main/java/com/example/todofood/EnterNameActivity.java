@@ -13,14 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class EnterNameActivity extends AppCompatActivity {
-    MainActivity mainActivity=new MainActivity();
+    SharedPreferences sPref;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_name);
-        mainActivity.sPref = getSharedPreferences("Data", Context.MODE_PRIVATE);
         //Toast.makeText(this, "Text loaded", Toast.LENGTH_SHORT).show();
     }
     public void onClickBackToCodeConfirm(View v){
@@ -30,16 +29,16 @@ public class EnterNameActivity extends AppCompatActivity {
     }
 
     public void onClickSaveAcc(View v){
-     /*   mainActivity.sPref = getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor ed = mainActivity.sPref.edit();
-        ed.putBoolean("SAVE_BOOLEAN", true);
+        sPref = getSharedPreferences("Data", Context.MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putString("SAVE_STRING", "True");
         ed.apply();
-        System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF="+mainActivity.sPref.getBoolean("SAVE_BOOLEAN",false));
-*/
+        System.out.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF="+sPref.getString("SAVE_STRING","false"));
 
 
-/*        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);*/
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("Activity","EnterName");
+        startActivity(intent);
         finish();
 
     }
