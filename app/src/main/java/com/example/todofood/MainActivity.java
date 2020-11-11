@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,8 +29,11 @@ public class MainActivity extends AppCompatActivity  {
     String activityStr;
     String fragmentStr;
     String savedText;
+    int counter;
     boolean savedFragmentPersonal=false;
+    boolean savedFragmentBasket=false;
     public boolean goToBasketCheck=false;
+    public boolean savedFragmentBasketFinal=false;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -39,7 +43,6 @@ public class MainActivity extends AppCompatActivity  {
         Fragment fragment = new MainFragment();
         activityStr=getIntent().getExtras().getString("Activity");
         fragmentStr = getIntent().getExtras().getString("Fragment");
-
         sPref = getSharedPreferences("Data", Context.MODE_PRIVATE);
 
         menuItem =bottomNav.getMenu().findItem(R.id.nav_basket);
@@ -68,10 +71,13 @@ public class MainActivity extends AppCompatActivity  {
             {
                 if( fragmentStr.equals("Basket"))
                 {
+                    savedFragmentBasketFinal=true;
+                    savedFragmentBasket = true;
                     fragment=new BasketFragment();
                     bottomNav.getMenu().findItem(R.id.nav_basket).setChecked(true);
                 }
             }else if(activityStr.equals("EnterName")){
+
                 savedFragmentPersonal=true;
                 fragment=new PersonalFragment();
                 bottomNav.getMenu().findItem(R.id.nav_personal).setChecked(true);
@@ -91,6 +97,20 @@ public class MainActivity extends AppCompatActivity  {
         {
             savedFragmentPersonal=false;
             changePersonal();
+        }
+        if(savedFragmentBasket==true && savedFragmentBasketFinal==true)
+        {
+            savedFragmentBasket=false;
+            TextView BasketEmpty=findViewById(R.id.basket_text_view);
+            BasketEmpty.setVisibility(View.INVISIBLE);
+            Button goToMain = findViewById(R.id.button_back_to_main);
+            goToMain.setVisibility(View.INVISIBLE);
+            Button doOrder = findViewById(R.id.button_do_order);
+            doOrder.setVisibility(View.VISIBLE);
+            View shadowLineBasket=findViewById(R.id.shadow_line_basket);
+            shadowLineBasket.setVisibility(View.VISIBLE);
+            ScrollView scrollViewBasket = findViewById(R.id.scrol_view_basket);
+            scrollViewBasket.setVisibility(View.VISIBLE);
         }
         // Возобновите все приостановленные обновления UI,
         // потоки или процессы, которые были "заморожены",
@@ -124,6 +144,7 @@ public class MainActivity extends AppCompatActivity  {
                             selectedFragment=new MainFragment();
                             break;
                         case R.id.nav_basket:
+                            savedFragmentBasket=true;
                             selectedFragment=new BasketFragment();
                             break;
                         case R.id.nav_search:
@@ -145,7 +166,13 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+    public void onClickMinus(View v){
 
+
+    }
+    public void onClickPlus(View v){
+
+    }
     public void onBackPressed() { }
 
     public void onClickGoToRestoran(View v) {
@@ -176,6 +203,19 @@ public class MainActivity extends AppCompatActivity  {
         //View view = bottomNav.findViewById(R.id.nav_basket);
         //navListener.onNavigationItemSelected(menuItem);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new MainFragment()).commit();
+    }
+    public void onClickDoOrder(View v){
+        savedFragmentBasketFinal=false;
+        TextView BasketEmpty=findViewById(R.id.basket_text_view);
+        BasketEmpty.setVisibility(View.VISIBLE);
+        Button goToMain = findViewById(R.id.button_back_to_main);
+        goToMain.setVisibility(View.VISIBLE);
+        Button doOrder = findViewById(R.id.button_do_order);
+        doOrder.setVisibility(View.INVISIBLE);
+        View shadowLineBasket=findViewById(R.id.shadow_line_basket);
+        shadowLineBasket.setVisibility(View.INVISIBLE);
+        ScrollView scrollViewBasket = findViewById(R.id.scrol_view_basket);
+        scrollViewBasket.setVisibility(View.INVISIBLE);
     }
     public void OpenPersonalData(){
         //

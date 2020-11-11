@@ -52,7 +52,7 @@ public class MapsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_maps);
         mapview = (MapView)findViewById(R.id.mapview);
         mapview.getMap().move(
-                new CameraPosition(new Point(55.751574, 37.573856), 11.0f, 0.0f, 0.0f),
+                new CameraPosition(new Point(44.952116, 34.102411), 12.0f, 0.0f, 0.0f),
                 new Animation(Animation.Type.SMOOTH, 0),
                 null);
 
