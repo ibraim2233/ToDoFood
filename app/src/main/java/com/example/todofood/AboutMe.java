@@ -9,48 +9,38 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RegistrationContinueActivity extends AppCompatActivity {
-    TextView textAboutCode;
-    EditText editTextCode;
-    SharedPreferences sPref;
-    SharedPreferences.Editor ed;
-    String codeConfirm;
-
+public class AboutMe extends AppCompatActivity {
+    TextView name;
+    TextView phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setContentView(R.layout.activity_registration_continue);
-        editTextCode = findViewById(R.id.editTextCode);
-        textAboutCode = findViewById(R.id.text_about_code);
+        setContentView(R.layout.activity_about_me);
+        name = findViewById(R.id.my_name);
+        phone = findViewById(R.id.my_phone);
+        SharedPreferences sPref;
         sPref = getSharedPreferences("Data", Context.MODE_PRIVATE);
-        ed= sPref.edit();
-        codeConfirm = "0000";
-        textAboutCode.setText("На номер +"+sPref.getString("Phone","False")  + " отправлено СМС с кодом.Телефон важен, что бы курьер смог связаться в вами");
-    }
-    public void onClickBackToPhoneReg(View v)
-    {
-        Intent intent = new Intent(this,RegistrationActivity.class);
-        startActivity(intent);
-        finish();
-    }
-    public void onClickGoToEnterName(View v){
-        if(editTextCode.getText().toString().equals(codeConfirm))
-        {
-            Intent intent = new Intent(this,EnterNameActivity.class);
+        name.setText("Имя: "+sPref.getString("Name","False"));
+        phone.setText("Телефон: +"+sPref.getString("Phone","False"));
 
-        ed.putString("Code", editTextCode.getText().toString());
-        ed.apply();
+    }
+    public void onClickChangeMyInfo(View view){
+        Intent intent = new Intent(this,RegistrationActivity.class);
+        intent.putExtra("Activity","AboutMe");//////////////////////nado proveritb
         startActivity(intent);
         finish();
-        }
-        else {
-            Toast.makeText(this, "Введен неверный код!", Toast.LENGTH_SHORT).show();
-        }
+    }
+    public void onClickCloseInfo(View v)
+    {
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("Activity","Registration");//////////////////////nado proveritb
+        intent.putExtra("Fragment","Personal");
+        startActivity(intent);
+        finish();
     }
     private Boolean exit = false;
     @Override

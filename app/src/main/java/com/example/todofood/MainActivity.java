@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity  {
     String activityStr;
     String fragmentStr;
     String savedText;
+    String savedOrder;
+    RecyclerView recyclerView;
+    RestoranMenuAdapter adapter;
     int counter;
     boolean savedFragmentPersonal=false;
     boolean savedFragmentBasket=false;
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity  {
         //System.out.println("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ="+goToBasketCheck);
         //changePersonal();
         savedText = sPref.getString("SAVE_STRING","false");
+        savedOrder = sPref.getString("Order","False");
         System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH="+sPref.getString("SAVE_STRING","false"));
         System.out.println("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW="+savedText);
 
@@ -58,7 +64,7 @@ public class MainActivity extends AppCompatActivity  {
             changePersonal();*/
         if (savedInstanceState == null) {
 
-            if(activityStr.equals("Registration"))
+            if(activityStr!= null && activityStr.equals("Registration"))
             {
                 if( fragmentStr.equals("Personal"))
                 {
@@ -67,7 +73,7 @@ public class MainActivity extends AppCompatActivity  {
                     bottomNav.getMenu().findItem(R.id.nav_personal).setChecked(true);
                 }
             }
-            if(activityStr.equals("RestoranMenu"))
+            if(activityStr!= null && (activityStr.equals("RestoranMenu") ||activityStr.equals("Payment") ))
             {
                 if( fragmentStr.equals("Basket"))
                 {
@@ -75,8 +81,12 @@ public class MainActivity extends AppCompatActivity  {
                     savedFragmentBasket = true;
                     fragment=new BasketFragment();
                     bottomNav.getMenu().findItem(R.id.nav_basket).setChecked(true);
+                }else if(fragmentStr.equals("BasketEmpty"))
+                {
+                    fragment=new BasketFragment();
+                    bottomNav.getMenu().findItem(R.id.nav_basket).setChecked(true);
                 }
-            }else if(activityStr.equals("EnterName")){
+            }else if(activityStr!= null && activityStr.equals("EnterName")){
 
                 savedFragmentPersonal=true;
                 fragment=new PersonalFragment();
@@ -98,19 +108,23 @@ public class MainActivity extends AppCompatActivity  {
             savedFragmentPersonal=false;
             changePersonal();
         }
-        if(savedFragmentBasket==true && savedFragmentBasketFinal==true)
+        if(savedOrder!= null && savedOrder.equals("True") && savedFragmentBasket==true)
         {
             savedFragmentBasket=false;
             TextView BasketEmpty=findViewById(R.id.basket_text_view);
             BasketEmpty.setVisibility(View.INVISIBLE);
             Button goToMain = findViewById(R.id.button_back_to_main);
             goToMain.setVisibility(View.INVISIBLE);
+            TextView basketHeader = findViewById(R.id.basket);
+            basketHeader.setVisibility(View.VISIBLE);
             Button doOrder = findViewById(R.id.button_do_order);
             doOrder.setVisibility(View.VISIBLE);
-            View shadowLineBasket=findViewById(R.id.shadow_line_basket);
+            View shadowLineBasket=findViewById(R.id.shadow_line_basket_main);
             shadowLineBasket.setVisibility(View.VISIBLE);
-            ScrollView scrollViewBasket = findViewById(R.id.scrol_view_basket);
-            scrollViewBasket.setVisibility(View.VISIBLE);
+            View shadowLineBasket2=findViewById(R.id.shadow_line_basket2);
+            shadowLineBasket2.setVisibility(View.VISIBLE);
+            RecyclerView recyclerView = findViewById(R.id.recycler_view_basket);
+            recyclerView.setVisibility(View.VISIBLE);
         }
         // Возобновите все приостановленные обновления UI,
         // потоки или процессы, которые были "заморожены",
@@ -165,7 +179,6 @@ public class MainActivity extends AppCompatActivity  {
             };
 
 
-
     public void onClickMinus(View v){
 
 
@@ -173,10 +186,35 @@ public class MainActivity extends AppCompatActivity  {
     public void onClickPlus(View v){
 
     }
-    public void onBackPressed() { }
+    private Boolean exit = false;
+    @Override
+    public void onBackPressed() {
+        if (exit) {
+            finish(); // finish activity
+        } else {
+            Toast.makeText(this, "Нажмите назад снова чтобы закрыть",
+                    Toast.LENGTH_SHORT).show();
+            exit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
 
-    public void onClickGoToRestoran(View v) {
+        }
+    }
+////////////////////////////////////////////////////////////////////////////////////////
+
+    public void onClickGoToRestoranCFC(View v) {
         Intent intent = new Intent(this,RestoranMenu.class);
+        intent.putExtra("Restoran","CFC");
+        startActivity(intent);
+        finish();
+    }
+    public void onClickGoToRestoranMC(View v) {
+        Intent intent = new Intent(this,RestoranMenu.class);
+        intent.putExtra("Restoran","MC");
         startActivity(intent);
         finish();
     }
@@ -190,6 +228,11 @@ public class MainActivity extends AppCompatActivity  {
             startActivity(intent);
             finish();
         }
+    }
+    public void onClickOpenOrders(View v){
+        Intent intent = new Intent(this, MyOrders.class);
+        startActivity(intent);
+        finish();
     }
     public void onClickBackToFoodMenu(View v){
         bottomNav.getMenu().getItem(3).setChecked(false);
@@ -205,19 +248,30 @@ public class MainActivity extends AppCompatActivity  {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new MainFragment()).commit();
     }
     public void onClickDoOrder(View v){
-        savedFragmentBasketFinal=false;
+/*        savedFragmentBasketFinal=false;
         TextView BasketEmpty=findViewById(R.id.basket_text_view);
         BasketEmpty.setVisibility(View.VISIBLE);
         Button goToMain = findViewById(R.id.button_back_to_main);
         goToMain.setVisibility(View.VISIBLE);
+        TextView basketHeader = findViewById(R.id.basket);
+        basketHeader.setVisibility(View.INVISIBLE);
         Button doOrder = findViewById(R.id.button_do_order);
         doOrder.setVisibility(View.INVISIBLE);
-        View shadowLineBasket=findViewById(R.id.shadow_line_basket);
+        View shadowLineBasket=findViewById(R.id.shadow_line_basket_main);
         shadowLineBasket.setVisibility(View.INVISIBLE);
-        ScrollView scrollViewBasket = findViewById(R.id.scrol_view_basket);
-        scrollViewBasket.setVisibility(View.INVISIBLE);
+        View shadowLineBasket2=findViewById(R.id.shadow_line_basket2);
+        shadowLineBasket2.setVisibility(View.INVISIBLE);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_basket);
+        recyclerView.setVisibility(View.INVISIBLE);*/
+        //getIntent().putExtra("Order","False");
+
+        Intent intent = new Intent(this,Payment.class);
+        startActivity(intent);
+        finish();
     }
     public void OpenPersonalData(){
-        //
+        Intent intent = new Intent(this,AboutMe.class);
+        startActivity(intent);
+        finish();
     }
 }

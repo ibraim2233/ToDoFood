@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Payment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:onClick="onClickBackToMenu"
+            android:layout_width="24sp"
+            android:layout_height="24sp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/ic_baseline_arrow_back_ios_24"
+            />
+
+        <TextView
+            android:id="@+id/restoran_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Доставка и оплата"
+            android:fontFamily="@font/comfortaa_regular"
+            android:textFontWeight="700"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Номер телефона"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="20dp"
+                android:textFontWeight="700"
+                android:textSize="14dp"
+                android:fontFamily="@font/comfortaa_regular"
+                android:textColor="#939297"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="100dp"
+                    android:textSize="28sp"
+                    android:textFontWeight="700"
+
+                    android:textColor="#000000"
+
+
+                    android:fontFamily="@font/comfortaa_regular"
+                    />
+
+                <EditText
+                    android:id="@+id/editTextPhonePay"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#ffffff"
+                    android:digits="0123456789"
+
+                    android:fontFamily="@font/comfortaa_regular"
+                    android:hint="Enter number"
+                    android:inputType="phone"
+                    android:maxEms="10"
+                    android:maxLength="11"
+                    android:minEms="10"
+                    android:textFontWeight="700"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/shadow"
+                    android:layout_below="@+id/editTextPhonePay"
+                    android:layout_toStartOf="@+id/button_enter"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:id="@+id/title_container">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Стоимость"
+                    android:layout_marginLeft="21dp"
+                    android:textSize="20sp"
+                    android:textFontWeight="400"
+
+                    android:fontFamily="@font/comfortaa_regular"
+                    android:textColor="#000000"
+                    />
+
+                <TextView
+                    android:id="@+id/price_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="150"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/comfortaa_regular"
+                    android:textFontWeight="400"
+                    android:textSize="20dp"
+                    android:drawableRight="@drawable/ic_ruble"
+                    android:drawablePadding="4dp"
+
+                    android:textAlignment="textEnd"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Доставка"
+                    android:layout_marginLeft="21dp"
+                    android:textSize="20sp"
+                    android:textFontWeight="400"
+
+                    android:fontFamily="@font/comfortaa_regular"
+                    android:textColor="#000000"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/comfortaa_regular"
+                    android:textFontWeight="400"
+                    android:textSize="20dp"
+                    android:drawableRight="@drawable/ic_ruble"
+                    android:drawablePadding="4dp"
+
+                    android:textAlignment="textEnd"/>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Итого"
+                    android:layout_marginLeft="21dp"
+                    android:textSize="24sp"
+                    android:textFontWeight="700"
+
+                    android:fontFamily="@font/comfortaa_regular"
+                    android:textColor="#000000"
+                    />
+                <TextView
+                    android:id="@+id/itogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/comfortaa_regular"
+                    android:textFontWeight="700"
+                    android:textSize="24dp"
+                    android:drawableRight="@drawable/ic_ruble"
+                    android:drawablePadding="4dp"
+
+                    android:textAlignment="textEnd"/>
+
+
+            </RelativeLayout>
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/text_oplata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/pay_nal"
+                android:layout_alignParentStart="true"
+                android:text="Оплата"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/comfortaa_regular"
+                ></TextView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/liner_container"
+
+                    >
+
+                    <Button
+                        android:onClick="onClickCard"
+                        android:id="@+id/pay_card"
+                        style="@style/ButtonFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:textColor="#000000"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="Картой"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/comfortaa_regular"
+                        tools:ignore="OnClick" />
+
+                    <Button
+                        android:onClick="onClickNal"
+                        android:layout_toRightOf="@+id/pay_card"
+                        android:id="@+id/pay_nal"
+                        style="@style/ButtonFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:textColor="#000000"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+
+                        android:text="Наличными"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/comfortaa_regular"
+                        tools:ignore="OnClick" />
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/liner_container"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="1dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="#E5E5E5"
+                    android:id="@+id/container_card_payment"
+                    android:visibility="visible"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Номер карты"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:textSize="16sp"
+                            android:textFontWeight="600"
+
+
+                            android:fontFamily="@font/comfortaa_regular"
+                            android:textColor="#000000"
+                            />
+
+                        <EditText
+                            android:id="@+id/editTextCardPay"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:paddingLeft="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:background="#ffffff"
+                            android:digits="0123456789"
+                            android:fontFamily="@font/comfortaa_regular"
+                            android:inputType="phone"
+                            android:maxEms="10"
+                            android:maxLength="16"
+                            android:minEms="10"
+                            android:textFontWeight="700"
+                            android:textSize="18sp"
+
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Имя владельца"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:textSize="16sp"
+                            android:textFontWeight="600"
+
+
+                            android:fontFamily="@font/comfortaa_regular"
+                            android:textColor="#000000"
+                            />
+
+                        <EditText
+                            android:id="@+id/editTextNamePay"
+                            android:paddingLeft="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="#ffffff"
+                            android:fontFamily="@font/comfortaa_regular"
+                            android:inputType="textPersonName"
+
+                            android:textFontWeight="700"
+                            android:textSize="18sp"
+
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Дата"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:textSize="16sp"
+                            android:textFontWeight="600"
+
+
+                            android:fontFamily="@font/comfortaa_regular"
+                            android:textColor="#000000"
+                            />
+
+                        <TextView
+                            android:onClick="setDate"
+                            android:paddingLeft="10dp"
+                            android:id="@+id/textDataPay"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="100dp"
+                            android:layout_marginTop="5dp"
+                            android:background="#ffffff"
+                            android:fontFamily="@font/comfortaa_regular"
+                            android:textFontWeight="700"
+                            android:textSize="18sp"
+                            android:layout_marginBottom="10dp"
+
+                            />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <Button
+                    android:id="@+id/button_pay"
+                    android:onClick="onClickPay"
+                    android:textAllCaps="false"
+                    android:textFontWeight="600"
+                    android:layout_below="@+id/container_card_payment"
+                    android:background="@drawable/button_enter"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:paddingRight="24dp"
+                    android:paddingLeft="24dp"
+                    android:textColor="#000000"
+
+                    android:text="Оплатить"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/comfortaa_regular"
+
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

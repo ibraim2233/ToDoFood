@@ -10,38 +10,49 @@
 
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#ffffff">
+        android:background="#ffffff"
+        android:layout_marginTop="36dp">
 
 
-        <ImageButton
-            android:id="@+id/back_to_main_fragment"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="51dp"
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageButton
+        android:onClick="onClickClose"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
 
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/ic_remove_symbol"
-            />
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ic_remove_symbol"
+        />
+</RelativeLayout>
 
-        <TextView
-            android:onClick="onClickClose"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/comfortaa_regular"
-            android:text="Телефон"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textFontWeight="700"
-            android:textSize="24dp" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_regular"
+        android:text="Телефон"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+
+        android:textColor="#000000"
+        android:paddingRight="20dp"
+        android:textFontWeight="700"
+        android:textSize="24dp" />
+</RelativeLayout>
 
 
-    </RelativeLayout>
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -110,7 +121,6 @@
             android:textSize="18sp" />
 
         <ImageButton
-            android:id="@+id/clear_number"
             android:onClick="onClickDelete"
             android:layout_centerInParent="true"
             android:layout_width="16dp"

@@ -10,7 +10,6 @@
 
     <ImageButton
         android:onClick="onClickBackToCodeConfirm"
-        android:id="@+id/back_to_phone_reg"
         android:layout_width="25sp"
         android:layout_height="25sp"
         android:layout_marginTop="40dp"
@@ -36,7 +35,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editTextPhone"
+                android:id="@+id/editTextName"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
@@ -67,7 +66,6 @@
     android:layout_height="match_parent">
     <Button
         android:onClick="onClickSaveAcc"
-        android:id="@+id/button_go_to_enter_name"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:layout_centerInParent="true"

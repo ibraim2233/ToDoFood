@@ -6,17 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MapsActivity"
-    android:background="#b00b69"
+    android:background="#ffffff"
     >
-
     <com.yandex.mapkit.mapview.MapView
         android:id="@+id/mapview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
 
-
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -53,6 +52,7 @@
                     android:paddingTop="10dp"
                     android:textSize="20dp"
                     android:textFontWeight="400"
+                    android:paddingEnd="5dp"
                     android:fontFamily="@font/comfortaa_regular"
                     android:imeOptions="actionSearch"
                     android:inputType="text"
@@ -62,6 +62,12 @@
 
 
             </LinearLayout>
+            <ListView
+                android:id="@+id/suggest_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_below="@id/search_layout"/>
             <Button
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
@@ -80,7 +86,7 @@
                 android:paddingTop="14dp"
                 android:paddingBottom="14dp"
                 android:layout_marginBottom="15dp"
-                android:layout_below="@+id/search_layout"
+                android:layout_below="@+id/suggest_result"
 
                 android:textSize="20sp"
                 android:textStyle="normal" />

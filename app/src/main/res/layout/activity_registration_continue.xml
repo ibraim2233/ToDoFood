@@ -16,7 +16,6 @@
 
     <ImageButton
         android:onClick="onClickBackToPhoneReg"
-        android:id="@+id/back_to_phone_reg"
         android:layout_width="25sp"
         android:layout_height="25sp"
         android:layout_marginTop="40dp"
@@ -36,6 +35,7 @@
         android:layout_marginRight="20dp"/>
 
     <TextView
+        android:id="@+id/text_about_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -58,7 +58,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editTextPhone"
+            android:id="@+id/editTextCode"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
@@ -87,7 +87,6 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button_confirm"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:layout_alignParentEnd="true"
@@ -108,7 +107,6 @@
 </RelativeLayout>
     <Button
         android:onClick="onClickGoToEnterName"
-        android:id="@+id/button_go_to_enter_name"
         android:textAllCaps="false"
         android:textFontWeight="600"
         android:layout_centerInParent="true"
